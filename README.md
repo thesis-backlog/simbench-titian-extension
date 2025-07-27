@@ -1,4 +1,6 @@
-# Simbench-TiTIAN: RL Environment for Topology Optimization
+# Simbench-TiTIAN: An open-source reinforcement
+learning environment for topology optimisation in
+highly loaded distribution grids
 
 This repository hosts the source code for **Simbench-TiTIAN**, a Gymnasium-compatible reinforcement learning environment for congestion management and topology optimization in high-voltage power grids.
 
