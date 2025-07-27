@@ -1,3 +1,23 @@
+"""
+environment.py
+
+Defines the ENV_RHV class — a custom Gymnasium-compatible reinforcement learning environment
+for topology-based congestion management in high-voltage distribution grids. The environment
+integrates SimBench benchmark networks with time-series load and generation profiles, and performs
+AC load flow simulations using pandapower.
+
+Key features include:
+- Structured agent–environment interaction via step/reset methods.
+- Dynamic action space based on circuit breaker switching (with optional EHV filtering).
+- Multi-modal observation space combining discrete (switch state, connectivity) and continuous 
+  (vm_pu, line loading, power injections) variables.
+- Congestion-oriented reward function with penalties for unstable grid states.
+- Episode termination conditions aligned with power flow convergence, voltage validity, and 
+  network connectivity constraints.
+
+This environment supports reproducible experimentation with policy-based RL algorithms 
+for grid reconfiguration under high loading scenarios.
+"""
 import gymnasium
 import numpy as np
 import os
