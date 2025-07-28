@@ -14,11 +14,11 @@ This repository supports the research presented in the following paper:
 
 ## 🔍 Project Highlights
 
-- Based on publicly available [SimBench](https://www.simbench.net/) grid models with dynamic load and generation profiles
+- Based on publicly available [SimBench](https://www.simbench.net/) grid models with variable load and generation profiles
 - Uses [pandapower](https://www.pandapower.org/) for power flow simulation and validation
 - Implements a Gymnasium-compatible RL environment for circuit breaker control
 - Trains a PPO agent via [Stable-Baselines3](https://stable-baselines3.readthedocs.io/) for congestion mitigation
-- Features reward functions and penalties tailored for realistic grid stability conditions
+- Features reward functions and penalties for realistic grid stability conditions
 - Supports action filtering (e.g., NodeSplittingExEHVCBs) and dictionary-based observations
 
 ---
