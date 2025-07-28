@@ -26,17 +26,18 @@ This repository supports the research presented in the following paper:
 ## 📂 Current Contents
 
 - `env/`: Custom Gymnasium environment implementation using SimBench and pandapower
-- `agent/`: PPO agent configuration and training setup
-- `utils/`: Utility functions for reward computation, callbacks, and logging
-- `scripts/`: Scripts for training and evaluating RL agents
-- `notebooks/`: Jupyter notebooks for demonstration, evaluation, and visualization
-- `environment.py`: Contains the ENV_RHV class (to be modularized into `env/`)
+- `environment.py`: Contains the ENV_RHV class (modularized into `env/`)
 
 ---
 
 ## 🛠️ Work in Progress
 
 The following items are being progressively integrated:
+- `agent/`: PPO agent configuration and training setup
+- `utils/`: Utility functions for reward computation, callbacks, and logging
+- `scripts/`: Scripts for training and evaluating RL agents
+- `notebooks/`: Jupyter notebooks for demonstration, evaluation, and visualization
+
 - PPO training and evaluation loop
 - Congestion-based reward structure with penalty logic
 - Logging and monitoring callbacks
