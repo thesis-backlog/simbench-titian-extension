@@ -1,4 +1,4 @@
-from Environments.Main.ENV_RHV_IEEE_PES import ENV_RHV
+from Environments.Main.ENV_RHV import ENV_RHV
 from stable_baselines3 import PPO
 import time
 
@@ -22,5 +22,5 @@ elapsed_time = time.time() - start_time
 print(f'\nTraining completed in {elapsed_time/60:.2f} minutes')
 
 # Save the trained model
-model.save('ppo_rhv_test')
-print('Model saved as ppo_rhv_test.zip')
+model.save('models/ppo_rhv_test')
+print('Model saved as models/ppo_rhv_test.zip')

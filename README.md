@@ -50,7 +50,7 @@ pip install -r requirements.txt
 .
 ├── Environments/
 │   └── Main/
-│       └── ENV_RHV_IEEE_PES.py    # Main environment implementation
+│       └── ENV_RHV.py             # Main environment implementation
 ├── data/                           # Grid network data files
 ├── models/                         # Saved trained models
 ├── logs/                          # Training logs
@@ -85,7 +85,7 @@ The environment accepts the following key parameters:
 ### Custom Training
 
 ```python
-from Environments.Main.ENV_RHV_IEEE_PES import ENV_RHV
+from Environments.Main.ENV_RHV import ENV_RHV
 from stable_baselines3 import PPO
 
 # Create environment

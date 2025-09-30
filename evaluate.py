@@ -3,7 +3,7 @@ Evaluation script for trained RL agents on ENV_RHV environment
 """
 import argparse
 import numpy as np
-from Environments.Main.ENV_RHV_IEEE_PES import ENV_RHV
+from Environments.Main.ENV_RHV import ENV_RHV
 from stable_baselines3 import PPO
 import json
 import time
