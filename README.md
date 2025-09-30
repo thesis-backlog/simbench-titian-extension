@@ -4,11 +4,11 @@ This repository provides a structured, open-source Gymnasium-compatible environm
 
 ## Citation
 
-This repository supports the research presented in the following paper:
+This repository supports the research presented at the IEEE PES 2025 Student Poster Contest:
 
 **Md. Kamrul Hasan Monju, Harald Jendrian, Reinaldo Tonkoski**
-*Simbench-TiTIAN: An Open-Source Reinforcement Learning Environment for Topology Optimisation in Highly Loaded Distribution Grids*, IEEE PES Conference, 2025.
-([PDF available upon acceptance/publication])
+*Simbench-TiTIAN: An Open-Source Reinforcement Learning Environment for Topology Optimisation in Highly Loaded Distribution Grids*, IEEE PES 2025 Student Poster Contest.
+([Poster available upon presentation])
 
 ---
 
