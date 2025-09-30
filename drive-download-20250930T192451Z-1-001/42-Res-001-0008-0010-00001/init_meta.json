@@ -1,0 +1,15 @@
+{
+    "exp_id": "42",
+    "agent": "PPO",
+    "grid_env": "RHVModV1",
+    "agent_code": "001",
+    "grid_env_code": "0008",
+    "action_type": "EncMask_CBandAllLinesFltrd",
+    "action_type_code": "0010",
+    "other_code": "00001",
+    "other_str": "actionmasking",
+    "exp_code": "001-0008-0010-00001",
+    "issue_number": "275/276",
+    "exp_name": "PPO-RHVModV1-EncMask_CBandAllLinesFltrd-actionmasking",
+    "exp_description": "We conduct the 3xperiment with encoding the line switches action into (0-16) discrete number where each number referes to a particular state of four switches of line two at from end while \n    two at the to end. Then, we apply masking to the invalid states."
+}

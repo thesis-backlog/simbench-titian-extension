@@ -6,8 +6,8 @@ This repository provides a structured, open-source Gymnasium-compatible environm
 
 This repository supports the research presented in the following paper:
 
-**Md. Kamrul Hasan Monju, Harald Jendrian, Reinaldo Tonkoski**  
-*Simbench-TiTIAN: An Open-Source Reinforcement Learning Environment for Topology Optimisation in Highly Loaded Distribution Grids*, IEEE PES Conference, 2025.  
+**Md. Kamrul Hasan Monju, Harald Jendrian, Reinaldo Tonkoski**
+*Simbench-TiTIAN: An Open-Source Reinforcement Learning Environment for Topology Optimisation in Highly Loaded Distribution Grids*, IEEE PES Conference, 2025.
 ([PDF available upon acceptance/publication])
 
 ---
@@ -23,35 +23,149 @@ This repository supports the research presented in the following paper:
 
 ---
 
-## 📂 Current Contents
+## Features
 
-- `env/`: Custom Gymnasium environment implementation using SimBench and pandapower
-- `environment.py`: Contains the ENV_RHV class (modularized into `env/`)
+- **Custom RL Environment**: Gymnasium-based environment for power grid control
+- **SimBench Integration**: Uses standardized benchmark grids for realistic simulations
+- **PPO Agent Training**: Leverages Stable-Baselines3 for reinforcement learning
+- **Flexible Configuration**: Supports custom and standard SimBench networks
+- **Action Space**: Node splitting strategy with circuit breaker control
+- **Observation Space**: Comprehensive grid state including line loadings, bus voltages, and power flows
 
----
+## Installation
 
-## 🛠️ Work in Progress
+### Prerequisites
+- Python 3.8+
+- pip
 
-The following items are being progressively integrated:
-- `agent/`: PPO agent configuration and training setup
-- `utils/`: Utility functions for reward computation, callbacks, and logging
-- `scripts/`: Scripts for training and evaluating RL agents
-- `notebooks/`: Jupyter notebooks for demonstration, evaluation, and visualization
+### Install Dependencies
 
-- PPO training and evaluation loop
-- Congestion-based reward structure with penalty logic
-- Logging and monitoring callbacks
-- Jupyter-based case study evaluation
-- License, citation, and contribution guidelines
+```bash
+pip install -r requirements.txt
+```
 
----
+## Project Structure
+
+```
+.
+├── Environments/
+│   └── Main/
+│       └── ENV_RHV_IEEE_PES.py    # Main environment implementation
+├── data/                           # Grid network data files
+├── models/                         # Saved trained models
+├── logs/                          # Training logs
+├── results/                       # Evaluation results
+├── test_training.py               # Quick training test script
+├── config.py                      # Configuration management
+├── evaluate.py                    # Model evaluation script
+├── requirements.txt               # Python dependencies
+└── README.md                      # This file
+```
+
+## Usage
+
+### Quick Test Training
+
+Run a quick 10-minute training session:
+
+```bash
+python test_training.py
+```
+
+### Configuration
+
+The environment accepts the following key parameters:
+
+- `simbench_code`: Grid network identifier (default: "RHVModV1-nominal")
+- `max_step`: Maximum steps per episode (default: 50)
+- `is_train`: Training mode flag (default: True)
+- `action_type`: Action strategy (default: "NodeSplittingExEHVCBs")
+- `case_study`: Load case study (default: "bc")
+
+### Custom Training
+
+```python
+from Environments.Main.ENV_RHV_IEEE_PES import ENV_RHV
+from stable_baselines3 import PPO
+
+# Create environment
+env = ENV_RHV(simbench_code='RHVModV1-nominal', max_step=50)
+
+# Initialize PPO agent
+model = PPO('MultiInputPolicy', env, verbose=1)
+
+# Train
+model.learn(total_timesteps=100000)
+
+# Save model
+model.save('models/ppo_grid_optimizer')
+```
+
+### Evaluation
+
+```bash
+python evaluate.py --model models/ppo_rhv_test.zip --episodes 100
+```
+
+## Environment Details
+
+### Action Space
+- **Type**: MultiDiscrete
+- **Size**: 61 (circuit breakers excluding EHV)
+- **Values**: Binary (0: open, 1: closed)
+
+### Observation Space
+- **Discrete switches**: Status of all switches and lines
+- **Line loadings**: Current loading on all lines
+- **Bus voltages**: Voltage magnitude at all buses
+- **Generator data**: Active power from generators
+- **Load data**: Load demand at all buses
+- **External grid**: Active and reactive power exchange
+
+### Reward Structure
+- Convergence penalty: -200
+- Line disconnect penalty: -200
+- NaN voltage penalty: -200
+- Penalty scalar: -10
+- Bonus constant: 10
+
+## Training Results
+
+### Latest Training Session
+- **Duration**: ~10 minutes
+- **Total Timesteps**: 10,000
+- **Episodes Completed**: ~200 (50 steps per episode)
+- **Algorithm**: PPO (Proximal Policy Optimization)
+- **Policy**: MultiInputPolicy
+- **Training Dataset**: 28,108 samples
+- **Test Dataset**: 7,028 samples
+- **Model Saved**: `ppo_rhv_test.zip`
+
+### Environment Statistics
+- **Grid Network**: RHVModV1 (Custom SimBench network)
+- **Total Circuit Breakers**: 64
+- **Total Switches**: 422
+- **Controllable CBs (excluding EHV)**: 61
+- **Number of Buses**: Varies by network
+- **Number of Lines**: Varies by network
+
+## Data Files
+
+- `RHVModV1-nominal.json`: Custom grid network definition
+- `env_meta.json`: Environment metadata and configuration
+- `init_meta.json`: Initialization metadata
+- `training_config_meta.json`: Training configuration
 
 ## 📜 License
 
 To be added before public release. The intended license will ensure free academic and non-commercial use.
 
----
-
 ## 🤝 Contributing
 
-Contributions are welcome. Please open an issue or submit a pull request to discuss bugs, feature requests, or integration ideas. Full contribution guidelines will be provided after initial release.
+Contributions are welcome. Please open an issue or submit a pull request to discuss bugs, feature requests, or integration ideas.
+
+## Acknowledgments
+
+- SimBench for standardized benchmark grids
+- Stable-Baselines3 for RL algorithms
+- PandaPower for power system simulation

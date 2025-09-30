@@ -1,0 +1,59 @@
+{
+    "is_train": true,
+    "is_normalize": false,
+    "max_step": 96,
+    "case_study": "bc",
+    "simbench_code": "RHVModV1",
+    "allowed_lines": 100,
+    "convergence_penalty": -200,
+    "line_disconnect_penalty": -200,
+    "nan_vm_pu_penalty": "dynamic",
+    "rho_min": 0.45,
+    "Shuffle": false,
+    "include_features": [
+        "time"
+    ],
+    "train_data_length": 28108,
+    "test_data_length": 7028,
+    "load_data_shape": [
+        35136,
+        58
+    ],
+    "sgen_data_shape": [
+        35136,
+        103
+    ],
+    "storage_train_data_shape": [
+        28108,
+        17
+    ],
+    "storage_test_data_shape": [
+        7028,
+        17
+    ],
+    "load_train_data_shape": [
+        28108,
+        58
+    ],
+    "sgen_train_data_shape": [
+        28108,
+        103
+    ],
+    "load_test_data_shape": [
+        7028,
+        58
+    ],
+    "sgen_test_data_shape": [
+        7028,
+        103
+    ],
+    "exp_code": "001-0008-0012-00001",
+    "action_type": "EncFiltrd_CBandAllLinesFltrd",
+    "reward_type": "Original",
+    "penalty_scalar": -10,
+    "bonus_constant": 10,
+    "total_CBs": 64,
+    "total_switches": 422,
+    "num_cbs_excluding_EHVCBs": 61,
+    "hot_spots": []
+}

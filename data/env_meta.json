@@ -1,0 +1,45 @@
+{
+    "is_train": true,
+    "is_normalize": false,
+    "max_step": 50,
+    "case_study": "bc",
+    "simbench_code": "RHVModV1-nominal",
+    "allowed_lines": 200,
+    "convergence_penalty": -200,
+    "line_disconnect_penalty": -200,
+    "nan_vm_pu_penalty": -200,
+    "rho_min": 0.45,
+    "train_data_length": 28108,
+    "test_data_length": 7028,
+    "load_data_shape": [
+        35136,
+        58
+    ],
+    "sgen_data_shape": [
+        35136,
+        103
+    ],
+    "load_train_data_shape": [
+        28108,
+        58
+    ],
+    "sgen_train_data_shape": [
+        28108,
+        103
+    ],
+    "load_test_data_shape": [
+        7028,
+        58
+    ],
+    "sgen_test_data_shape": [
+        7028,
+        103
+    ],
+    "exp_code": null,
+    "action_type": "NodeSplittingExEHVCBs",
+    "penalty_scalar": -10,
+    "total_CBs": 64,
+    "total_switches": 422,
+    "bonus_constant": 10,
+    "num_cbs_excluding_EHVCBs": 61
+}

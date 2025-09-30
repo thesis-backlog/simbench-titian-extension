@@ -1,0 +1,18 @@
+{
+    "exp_id": "44",
+    "exp_code": "001-0008-0012-00001",
+    "exp_name": "PPO-RHVModV1-EncFiltrd_CBandAllLinesFltrd-filtrdInvalid",
+    "logdir": "logs\\20250930-221224",
+    "env_name": "ENV_RHVModV1",
+    "policy": "MultiInputPolicy",
+    "n_epochs": 10,
+    "n_steps": 2048,
+    "batch_size": 256,
+    "gamma": 0.99,
+    "gae_lambda": 0.95,
+    "clip_range": 0.2,
+    "ent_coef": 0.01,
+    "max_grad_norm": 0.5,
+    "total_timesteps": 1000000,
+    "initial_learning_rate": 0.0003
+}
