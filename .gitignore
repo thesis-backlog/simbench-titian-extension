@@ -75,3 +75,4 @@ figures/
 drive-download-20250930T192451Z-1-001/
 logs-20250714T190310Z-1-001.zip
 *.zip
+.claude/
