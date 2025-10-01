@@ -158,7 +158,7 @@ python evaluate.py --model models/ppo_rhv_test.zip --episodes 100
 
 ## 📜 License
 
-To be added before public release. The intended license will ensure free academic and non-commercial use.
+This repository is currently provided for academic and research purposes. Please contact the authors for permissions regarding commercial use or redistribution.
 
 ## 🤝 Contributing
 
